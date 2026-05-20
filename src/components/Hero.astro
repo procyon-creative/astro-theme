@@ -2,8 +2,8 @@
 import HeroLockup from './HeroLockup.astro';
 
 type Props = {
-  /** Monospace eyebrow text, e.g. "WordPress · AI Connector · Dario LLM Router". */
-  eyebrow: string;
+  /** Monospace eyebrow text, e.g. "WordPress · AI Connector · Dario LLM Router". Omit to hide. */
+  eyebrow?: string;
 };
 
 const { eyebrow } = Astro.props;
@@ -13,15 +13,20 @@ const { eyebrow } = Astro.props;
   class="hero relative pt-[clamp(56px,9vw,130px)] pb-[clamp(48px,6vw,96px)]"
 >
   <div class="relative z-10">
-    <div
-      class="font-mono text-xs uppercase text-ink-mute-strong mb-9 inline-flex items-center gap-3"
-      style="letter-spacing: 0.22em;"
-    >
-      <span
-        class="pulse w-2 h-2 bg-neon-magenta rounded-full"
-        aria-hidden="true"></span>
-      {eyebrow}
-    </div>
+    {
+      eyebrow && (
+        <div
+          class="font-mono text-xs uppercase text-ink-mute-strong mb-9 inline-flex items-center gap-3"
+          style="letter-spacing: 0.22em;"
+        >
+          <span
+            class="pulse w-2 h-2 bg-neon-magenta rounded-full"
+            aria-hidden="true"
+          />
+          {eyebrow}
+        </div>
+      )
+    }
 
     <HeroLockup />
 
