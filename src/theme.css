@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Tell Tailwind v4 to scan this package's own components + layouts for
+ * utility class usage. Without this, consumers that import the theme via
+ * node_modules see only the classes their own files use; the components'
+ * utilities get tree-shaken away. Relative paths resolve against this
+ * file's location, so this works regardless of where the consumer is. */
+@source "./components/**/*.{astro,html,js,ts,jsx,tsx}";
+@source "./layouts/**/*.{astro,html,js,ts,jsx,tsx}";
+
 /* Procyon Creative design tokens, Tailwind v4 @theme inline form.
  *
  * Mirrors the CSS variables used by the wp-dario-provider and

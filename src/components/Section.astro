@@ -1,0 +1,39 @@
+---
+/**
+ * Numbered section wrapper. Produces the rule + "01 / heading" mono
+ * label + h2 title pattern used on every house-styled landing page.
+ *
+ * The title text is split into prefix + accent so the accent portion
+ * can get the cyan→magenta gradient. Use the `title` slot for full
+ * control over markup if needed.
+ */
+type Props = {
+  /** Section ID for anchor nav. */
+  id: string;
+  /** Monospace numbering label (e.g. "01 / What you get"). */
+  num: string;
+};
+
+const { id, num } = Astro.props;
+---
+
+<section
+  id={id}
+  class="sect relative py-[clamp(72px,9vw,120px)] border-t border-rule-soft"
+>
+  <div class="grid grid-cols-[auto_minmax(0,1fr)] gap-7 items-end mb-[clamp(40px,5vw,64px)]">
+    <div
+      class="font-mono text-xs uppercase text-ink-mute-strong border-b-[1.5px] border-neon-cyan pb-2"
+      style="letter-spacing: 0.22em;"
+    >
+      {num}
+    </div>
+    <h2
+      class="font-display font-black text-[clamp(32px,4.4vw,56px)] leading-[1.05] uppercase m-0 text-ink"
+      style="letter-spacing: 0.005em;"
+    >
+      <slot name="title" />
+    </h2>
+  </div>
+  <slot />
+</section>
