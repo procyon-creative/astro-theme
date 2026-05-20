@@ -1,0 +1,45 @@
+{
+  "name": "@procyon-creative/astro-theme",
+  "version": "0.1.0-pre.1",
+  "description": "Procyon Creative house-style Astro theme. Tailwind v4, dark navy palette, gradient accents. Landing + docs layouts; optional Starlight overlay.",
+  "license": "GPL-2.0-or-later",
+  "type": "module",
+  "homepage": "https://github.com/procyon-creative/astro-theme#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/procyon-creative/astro-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/procyon-creative/astro-theme/issues"
+  },
+  "keywords": [
+    "astro-component",
+    "astro-theme",
+    "tailwindcss",
+    "withastro",
+    "procyon-creative"
+  ],
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    "./theme.css": "./src/theme.css",
+    "./starlight.css": "./src/starlight.css",
+    "./components/*": "./src/components/*",
+    "./layouts/*": "./src/layouts/*"
+  },
+  "scripts": {
+    "dev": "npm --prefix demo run dev",
+    "build": "npm --prefix demo run build",
+    "preview": "npm --prefix demo run preview"
+  },
+  "peerDependencies": {
+    "astro": "^5.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

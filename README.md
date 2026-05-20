@@ -29,6 +29,21 @@ Procyon Creative house-style Astro theme. Tailwind v4, dark navy palette, gradie
 
 Display font: Big Shoulders Display. Body: IBM Plex Sans. Mono: JetBrains Mono.
 
+## Local development
+
+```bash
+cd demo
+npm install
+npm run dev
+```
+
+The `demo/` Astro site consumes the theme via `file:..` and proves the tokens compile through `@tailwindcss/vite`. Edit anything under `src/` and the demo hot-reloads.
+
+## Compatibility
+
+- **Astro 5.x.** Astro 6 currently fails to build with `@tailwindcss/vite` because of a Rolldown bundler/oxc-resolver mismatch (`Missing field tsconfigPaths`). Pinned to Astro 5 until that lands upstream.
+- **Tailwind v4.** Uses the `@theme inline` block, not a `tailwind.config.js`. Consumers must be on v4.
+
 ## Consumers (planned)
 
 - [procyon-creative/wp-dario-provider](https://github.com/procyon-creative/wp-dario-provider) — landing page at `/wp-dario-provider/`

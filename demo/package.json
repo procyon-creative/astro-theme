@@ -1,0 +1,21 @@
+{
+  "name": "demo",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@procyon-creative/astro-theme": "file:..",
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^5.18.1",
+    "tailwindcss": "^4.0.0"
+  }
+}
