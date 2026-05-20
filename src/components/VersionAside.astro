@@ -1,0 +1,43 @@
+---
+/**
+ * The right-column version badge that sits next to the hero copy.
+ * Designed as a separate component because the badge composition
+ * is fiddly (mono font, large display num, subtitle, slot for the
+ * "released by X" line).
+ */
+type Props = {
+  /** Label above the big number, defaults to "Latest release". */
+  label?: string;
+  /** Version string shown large, e.g. "v0.2.3". */
+  version: string;
+};
+
+const { label = "Latest release", version } = Astro.props;
+---
+
+<div
+  class="version border-[1.5px] border-rule px-[22px] py-5 bg-surface font-mono min-w-[220px] rounded"
+  aria-label={label}
+>
+  <div
+    class="text-[10px] uppercase text-ink-mute-strong mb-2"
+    style="letter-spacing: 0.22em;"
+  >
+    {label}
+  </div>
+  <div class="num font-display font-black text-[48px] leading-none text-neon-yellow" style="letter-spacing: 0.02em;">
+    {version}
+  </div>
+  <div class="mt-4 text-[11px] text-ink-soft leading-[1.55]" style="letter-spacing: 0.05em;">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .version {
+    box-shadow: 0 0 0 1px rgba(255, 110, 211, 0.2), 0 12px 40px rgba(0, 0, 0, 0.5);
+  }
+  .num {
+    text-shadow: var(--shadow-glow-yellow);
+  }
+</style>

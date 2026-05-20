@@ -1,0 +1,57 @@
+---
+import ProcyonWordmark from "./ProcyonWordmark.astro";
+
+type NavLink = { label: string; href: string };
+
+type Props = {
+  /** Short package slug shown next to the wordmark (e.g. "wp-dario-provider"). */
+  pkg: string;
+  /** Anchor links shown on the right. Hidden on very narrow viewports. */
+  nav?: NavLink[];
+  /** Brand link target. Defaults to procyoncreative.com. */
+  home?: string;
+};
+
+const { pkg, nav = [], home = "https://procyoncreative.com" } = Astro.props;
+---
+
+<header class="sticky top-0 z-30 backdrop-blur bg-bg/70 border-b border-rule-soft">
+  <div class="max-w-[1240px] mx-auto px-[clamp(20px,4vw,56px)] py-3 flex items-center justify-between gap-6 font-mono text-xs uppercase text-ink-mute-strong" style="letter-spacing: 0.08em;">
+    <div class="flex items-center gap-3.5 min-w-0">
+      <a href={home} aria-label="Procyon Creative homepage" class="no-underline">
+        <ProcyonWordmark variant="brand" class="logo h-[26px] w-auto" />
+      </a>
+      <span class="text-rule sep" aria-hidden="true">·</span>
+      <span class="text-ink font-medium pkg">{pkg}</span>
+    </div>
+    {
+      nav.length > 0 && (
+        <nav class="flex gap-[22px]" aria-label="Primary">
+          {nav.map((item) => (
+            <a href={item.href} class="text-ink-mute-strong no-underline hover:text-neon-cyan transition-colors">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      )
+    }
+  </div>
+</header>
+
+<style>
+  .logo {
+    filter: drop-shadow(0 0 12px rgba(255, 110, 211, 0.4));
+  }
+  @media (max-width: 520px) {
+    .logo {
+      height: 22px;
+    }
+    .sep,
+    .pkg {
+      display: none;
+    }
+  }
+  nav a:hover {
+    text-shadow: 0 0 12px rgba(108, 243, 251, 0.45), 0 0 24px rgba(44, 213, 222, 0.25);
+  }
+</style>

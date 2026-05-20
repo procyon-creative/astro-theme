@@ -1,0 +1,39 @@
+---
+/**
+ * Atmospheric background layer. The radial vignette + noise overlay come from
+ * theme.css's `body::before` / `body::after`. This component exists so layouts
+ * can place a Tron-perspective grid floor beneath the hero — that effect is
+ * scoped, not page-global.
+ */
+type Props = {
+  /** If true, paints the Tron perspective grid behind the first section. */
+  grid?: boolean;
+};
+
+const { grid = false } = Astro.props;
+---
+
+{
+  grid && (
+    <div class="hero-grid-floor" aria-hidden="true" />
+  )
+}
+
+<style>
+  .hero-grid-floor {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 70vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+    background-image:
+      linear-gradient(transparent 0%, transparent 70%, rgba(108, 243, 251, 0.18) 70%, rgba(108, 243, 251, 0.18) 71%, transparent 71%),
+      repeating-linear-gradient(90deg, rgba(108, 243, 251, 0.12) 0, rgba(108, 243, 251, 0.12) 1px, transparent 1px, transparent 80px),
+      repeating-linear-gradient(0deg, rgba(108, 243, 251, 0.10) 0, rgba(108, 243, 251, 0.10) 1px, transparent 1px, transparent 60px);
+    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.55) 60%, rgba(0, 0, 0, 0.85) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.55) 60%, rgba(0, 0, 0, 0.85) 100%);
+  }
+</style>

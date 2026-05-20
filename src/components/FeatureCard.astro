@@ -1,0 +1,43 @@
+---
+type Props = {
+  /** Card number rendered large, e.g. "01". */
+  num: string;
+  /** Card title rendered in display font. */
+  title: string;
+};
+
+const { num, title } = Astro.props;
+---
+
+<div class="feature">
+  <div class="feature-num">{num}</div>
+  <h3
+    class="font-display font-bold text-[24px] leading-[1.15] uppercase m-0 mb-[14px] text-ink"
+    style="letter-spacing: 0.01em;"
+  >
+    {title}
+  </h3>
+  <p class="feature-body text-[15px] leading-[1.6] text-ink-soft m-0">
+    <slot />
+  </p>
+</div>
+
+<style is:global>
+  .feature .feature-body code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: var(--color-bg-2);
+    padding: 1px 6px;
+    border-radius: 3px;
+    color: var(--color-neon-cyan);
+  }
+  .feature .feature-body a {
+    color: var(--color-neon-cyan);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+  }
+  .feature .feature-body a:hover {
+    color: var(--color-neon-magenta);
+  }
+</style>

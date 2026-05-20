@@ -1,0 +1,33 @@
+---
+type Props = {
+  /** Copyright line text (without the star — that's added decoratively). */
+  copyright: string;
+  /** Issues / report URL. */
+  issuesUrl: string;
+  /** Label for the issues link, defaults to "Report an issue →". */
+  issuesLabel?: string;
+};
+
+const { copyright, issuesUrl, issuesLabel = "Report an issue →" } = Astro.props;
+---
+
+<footer
+  class="border-t border-rule-soft pt-7 pb-15 mt-[clamp(60px,8vw,100px)] font-mono text-[11px] uppercase text-ink-mute-strong flex justify-between gap-5 flex-wrap"
+  style="letter-spacing: 0.12em;"
+>
+  <div>
+    {copyright} <span class="star text-neon-magenta mx-1.5" aria-hidden="true">✦</span> Released under GPL-2.0-or-later
+  </div>
+  <div>
+    <a href={issuesUrl} class="text-neon-cyan">{issuesLabel}</a>
+  </div>
+</footer>
+
+<style>
+  .star {
+    text-shadow: var(--shadow-glow-magenta);
+  }
+  footer {
+    padding-bottom: 60px;
+  }
+</style>

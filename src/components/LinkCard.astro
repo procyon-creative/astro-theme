@@ -1,0 +1,35 @@
+---
+type Props = {
+  /** Destination URL. */
+  href: string;
+  /** Small mono label above the name, e.g. "01 — Install". */
+  which: string;
+  /** Large display name, e.g. "npm" or "Repository". */
+  name: string;
+  /** Mono arrow line, e.g. "npmjs.com →". */
+  arrow: string;
+};
+
+const { href, which, name, arrow } = Astro.props;
+---
+
+<a class="link-card" href={href}>
+  <div
+    class="font-mono text-[11px] uppercase text-ink-mute-strong"
+    style="letter-spacing: 0.22em;"
+  >
+    {which}
+  </div>
+  <div
+    class="font-display font-black text-[38px] leading-none uppercase mt-[22px] text-ink"
+    style="letter-spacing: 0.02em;"
+  >
+    {name}
+  </div>
+  <div
+    class="arrow font-mono text-[13px] mt-[22px] self-start text-neon-cyan"
+    style="letter-spacing: 0.08em;"
+  >
+    {arrow}
+  </div>
+</a>

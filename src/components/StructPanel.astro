@@ -1,0 +1,48 @@
+---
+/**
+ * Two-column "structure" panel. Each panel slot gets a mono label
+ * plus a body (typically a <pre> with color-coded ASCII or a code
+ * snippet).
+ *
+ * Pass each side via the `left-label` / `left` / `right-label` /
+ * `right` slots.
+ */
+---
+
+<div class="struct grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-[18px]">
+  <div class="px-[30px] py-7 bg-surface border-[1.5px] border-rule rounded">
+    <div
+      class="font-mono text-[11px] uppercase text-ink-mute-strong mb-[18px]"
+      style="letter-spacing: 0.22em;"
+    >
+      <slot name="left-label" />
+    </div>
+    <slot name="left" />
+  </div>
+  <div class="px-[30px] py-7 bg-surface border-[1.5px] border-rule rounded">
+    <div
+      class="font-mono text-[11px] uppercase text-ink-mute-strong mb-[18px]"
+      style="letter-spacing: 0.22em;"
+    >
+      <slot name="right-label" />
+    </div>
+    <slot name="right" />
+  </div>
+</div>
+
+<style is:global>
+  .struct pre {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.65;
+    white-space: pre;
+    overflow-x: auto;
+    color: var(--color-ink-soft);
+  }
+  .struct .dim { color: var(--color-ink-mute-strong); }
+  .struct .tag-cy { color: var(--color-neon-cyan); }
+  .struct .tag-yl { color: var(--color-neon-yellow); }
+  .struct .tag-mg { color: var(--color-neon-magenta); }
+  .struct .tag-or { color: var(--color-neon-orange); }
+</style>
