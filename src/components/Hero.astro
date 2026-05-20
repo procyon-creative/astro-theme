@@ -1,5 +1,5 @@
 ---
-import HeroLockup from "./HeroLockup.astro";
+import HeroLockup from './HeroLockup.astro';
 
 type Props = {
   /** Monospace eyebrow text, e.g. "WordPress · AI Connector · Dario LLM Router". */
@@ -9,26 +9,35 @@ type Props = {
 const { eyebrow } = Astro.props;
 ---
 
-<section class="hero relative pt-[clamp(56px,9vw,130px)] pb-[clamp(48px,6vw,96px)]">
+<section
+  class="hero relative pt-[clamp(56px,9vw,130px)] pb-[clamp(48px,6vw,96px)]"
+>
   <div class="relative z-10">
     <div
       class="font-mono text-xs uppercase text-ink-mute-strong mb-9 inline-flex items-center gap-3"
       style="letter-spacing: 0.22em;"
     >
-      <span class="pulse w-2 h-2 bg-neon-magenta rounded-full" aria-hidden="true"></span>
+      <span
+        class="pulse w-2 h-2 bg-neon-magenta rounded-full"
+        aria-hidden="true"></span>
       {eyebrow}
     </div>
 
     <HeroLockup />
 
-    <div class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto] gap-[clamp(28px,4vw,80px)] items-start">
+    <div
+      class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto] gap-[clamp(28px,4vw,80px)] items-start"
+    >
       <div>
         <slot name="headline" />
         <slot name="lede" />
         <div class="mt-13">
           <slot name="install" />
         </div>
-        <div class="mt-[22px] flex gap-6 flex-wrap font-mono text-xs text-ink-mute-strong" style="letter-spacing: 0.06em;">
+        <div
+          class="mt-[22px] flex gap-6 flex-wrap font-mono text-xs text-ink-mute-strong"
+          style="letter-spacing: 0.06em;"
+        >
           <slot name="meta" />
         </div>
       </div>

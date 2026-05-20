@@ -13,11 +13,7 @@ type Props = {
 const { grid = false } = Astro.props;
 ---
 
-{
-  grid && (
-    <div class="hero-grid-floor" aria-hidden="true" />
-  )
-}
+{grid && <div class="hero-grid-floor" aria-hidden="true" />}
 
 <style>
   .hero-grid-floor {
@@ -30,10 +26,38 @@ const { grid = false } = Astro.props;
     z-index: 0;
     opacity: 0.4;
     background-image:
-      linear-gradient(transparent 0%, transparent 70%, rgba(108, 243, 251, 0.18) 70%, rgba(108, 243, 251, 0.18) 71%, transparent 71%),
-      repeating-linear-gradient(90deg, rgba(108, 243, 251, 0.12) 0, rgba(108, 243, 251, 0.12) 1px, transparent 1px, transparent 80px),
-      repeating-linear-gradient(0deg, rgba(108, 243, 251, 0.10) 0, rgba(108, 243, 251, 0.10) 1px, transparent 1px, transparent 60px);
-    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.55) 60%, rgba(0, 0, 0, 0.85) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.55) 60%, rgba(0, 0, 0, 0.85) 100%);
+      linear-gradient(
+        transparent 0%,
+        transparent 70%,
+        rgba(108, 243, 251, 0.18) 70%,
+        rgba(108, 243, 251, 0.18) 71%,
+        transparent 71%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(108, 243, 251, 0.12) 0,
+        rgba(108, 243, 251, 0.12) 1px,
+        transparent 1px,
+        transparent 80px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(108, 243, 251, 0.1) 0,
+        rgba(108, 243, 251, 0.1) 1px,
+        transparent 1px,
+        transparent 60px
+      );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.55) 60%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.55) 60%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
   }
 </style>
