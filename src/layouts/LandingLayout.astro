@@ -1,0 +1,88 @@
+---
+import Background from "../components/Background.astro";
+import TopStrip from "../components/TopStrip.astro";
+
+type NavLink = { label: string; href: string };
+
+type Props = {
+  /** Document title. */
+  title: string;
+  /** Meta description (also used for OG description if ogDescription is omitted). */
+  description: string;
+  /** Open Graph URL. */
+  ogUrl?: string;
+  /** Optional override for OG description. */
+  ogDescription?: string;
+  /** Theme color meta (defaults to the bg token #0a0628). */
+  themeColor?: string;
+  /** Brand SVG icon URL (relative to the page or absolute). Defaults to /procyon-icon.svg. */
+  favicon?: string;
+
+  /** Project slug shown in the sticky strip. */
+  pkg: string;
+  /** Sticky strip nav links. */
+  nav?: NavLink[];
+  /** Override the brand link target on the strip. */
+  home?: string;
+
+  /** Render the Tron-perspective grid floor under the hero. */
+  heroGrid?: boolean;
+
+  /** Stop loading the Google Fonts link. Use when self-hosting fonts. */
+  noFonts?: boolean;
+};
+
+const {
+  title,
+  description,
+  ogUrl,
+  ogDescription,
+  themeColor = "#0a0628",
+  favicon = "/procyon-icon.svg",
+  pkg,
+  nav,
+  home,
+  heroGrid = true,
+  noFonts = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content={themeColor} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={ogDescription ?? description} />
+    <meta property="og:type" content="website" />
+    {ogUrl && <meta property="og:url" content={ogUrl} />}
+
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+
+    {
+      !noFonts && (
+        <>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+            rel="stylesheet"
+          />
+        </>
+      )
+    }
+
+    <slot name="head" />
+  </head>
+  <body class="relative">
+    <TopStrip pkg={pkg} nav={nav} home={home} />
+
+    <main class="relative z-20 max-w-[1240px] mx-auto px-[clamp(20px,4vw,56px)]">
+      <Background grid={heroGrid} />
+      <slot />
+    </main>
+  </body>
+</html>

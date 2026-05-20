@@ -1,0 +1,39 @@
+---
+import ProcyonWordmark from "./ProcyonWordmark.astro";
+
+/**
+ * The big "procyon CREATIVE" wordmark + neon gradient mark composition
+ * that anchors every house-styled hero.
+ *
+ * The wordmark is decorative — screen readers ignore it via aria-hidden
+ * on the parent. The page's <h1> (rendered in <Hero>'s headline slot)
+ * is the actual semantic title.
+ */
+---
+
+<div class="flex items-center gap-7 mb-9 flex-wrap" aria-hidden="true">
+  <ProcyonWordmark variant="neon" class="mark h-[clamp(64px,9vw,110px)] w-auto" />
+  <div class="font-display uppercase leading-[0.95]">
+    <span
+      class="block font-bold text-[clamp(28px,3.6vw,50px)] bg-clip-text text-transparent word-1"
+      style={`background-image: linear-gradient(90deg, var(--color-neon-cyan), var(--color-neon-magenta)); letter-spacing: 0.04em;`}
+    >
+      procyon
+    </span>
+    <span
+      class="block font-black text-[clamp(36px,4.6vw,64px)] bg-clip-text text-transparent"
+      style={`background-image: linear-gradient(90deg, var(--color-neon-orange), var(--color-neon-yellow)); letter-spacing: 0.06em;`}
+    >
+      CREATIVE
+    </span>
+  </div>
+</div>
+
+<style>
+  .mark {
+    filter: drop-shadow(0 0 24px rgba(222, 27, 176, 0.55));
+  }
+  .word-1 {
+    text-shadow: 0 0 12px rgba(108, 243, 251, 0.45), 0 0 24px rgba(44, 213, 222, 0.25);
+  }
+</style>
