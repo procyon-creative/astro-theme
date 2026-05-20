@@ -1,0 +1,61 @@
+---
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>@procyon-creative/astro-theme — token preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="relative z-10 px-10 py-16">
+    <main class="relative z-20 max-w-5xl mx-auto">
+      <p class="font-mono text-xs tracking-[0.22em] uppercase text-ink-mute-strong mb-6">
+        Theme · Token Preview · @procyon-creative/astro-theme
+      </p>
+
+      <h1
+        class="font-display font-black uppercase text-6xl leading-[1.02] tracking-[0.005em] text-ink"
+        style="text-shadow: 0 0 18px rgba(108, 243, 251, 0.18);"
+      >
+        Procyon Creative<br />
+        Astro theme,<br />
+        <span class="bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow bg-clip-text text-transparent">
+          alive in v4.
+        </span>
+      </h1>
+
+      <p class="text-ink-soft max-w-2xl mt-7 text-lg leading-relaxed">
+        Tokens are loaded from <code class="font-mono text-sm bg-surface border border-rule-soft px-2 py-0.5 rounded text-neon-cyan">@procyon-creative/astro-theme/theme.css</code>.
+        Atmosphere, fonts, and palette match the wp-dario-provider and procyon-plugin-boilerplate landing pages.
+      </p>
+
+      <section class="mt-14 grid grid-cols-2 gap-4 max-w-3xl">
+        <div class="p-6 border border-rule rounded bg-surface">
+          <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-mute-strong mb-2">Surface</div>
+          <div class="font-display text-2xl text-ink">bg-surface</div>
+        </div>
+        <div class="p-6 border border-neon-cyan rounded bg-surface" style={`box-shadow: var(--shadow-glow-cyan);`}>
+          <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-mute-strong mb-2">Accent</div>
+          <div class="font-display text-2xl text-neon-cyan">neon-cyan + glow</div>
+        </div>
+        <div class="p-6 border border-neon-magenta rounded bg-surface" style={`box-shadow: var(--shadow-glow-magenta);`}>
+          <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-mute-strong mb-2">Accent</div>
+          <div class="font-display text-2xl text-neon-magenta">neon-magenta + glow</div>
+        </div>
+        <div class="p-6 border border-neon-orange rounded bg-surface">
+          <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-mute-strong mb-2">Accent</div>
+          <div class="font-display text-2xl text-neon-orange">neon-orange</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
