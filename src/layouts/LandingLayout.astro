@@ -1,6 +1,6 @@
 ---
-import Background from "../components/Background.astro";
-import TopStrip from "../components/TopStrip.astro";
+import Background from '../components/Background.astro';
+import TopStrip from '../components/TopStrip.astro';
 
 type NavLink = { label: string; href: string };
 
@@ -37,8 +37,8 @@ const {
   description,
   ogUrl,
   ogDescription,
-  themeColor = "#0a0628",
-  favicon = "/procyon-icon.svg",
+  themeColor = '#0a0628',
+  favicon = '/procyon-icon.svg',
   pkg,
   nav,
   home,
@@ -80,7 +80,9 @@ const {
   <body class="relative">
     <TopStrip pkg={pkg} nav={nav} home={home} />
 
-    <main class="relative z-20 max-w-[1240px] mx-auto px-[clamp(20px,4vw,56px)]">
+    <main
+      class="relative z-20 max-w-[1240px] mx-auto px-[clamp(20px,4vw,56px)]"
+    >
       <Background grid={heroGrid} />
       <slot />
     </main>

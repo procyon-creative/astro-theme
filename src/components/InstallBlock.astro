@@ -5,7 +5,7 @@
  * plus an optional `parts` array for token-colored rendering.
  */
 type CommandPart = {
-  type: "prompt" | "pkg" | "arg" | "flag";
+  type: 'prompt' | 'pkg' | 'arg' | 'flag';
   text: string;
 };
 
@@ -18,11 +18,11 @@ type Props = {
 
 const { command, parts } = Astro.props;
 
-const colorClass: Record<CommandPart["type"], string> = {
-  prompt: "text-neon-cyan select-none mr-3",
-  pkg: "text-neon-yellow",
-  arg: "text-ink",
-  flag: "text-neon-magenta",
+const colorClass: Record<CommandPart['type'], string> = {
+  prompt: 'text-neon-cyan select-none mr-3',
+  pkg: 'text-neon-yellow',
+  arg: 'text-ink',
+  flag: 'text-neon-magenta',
 };
 ---
 
@@ -37,11 +37,16 @@ const colorClass: Record<CommandPart["type"], string> = {
     aria-label="Install command (scrollable)"
   >
     {
-      parts && parts.length > 0
-        ? parts.map((p) => (
-            <span class={colorClass[p.type]} set:html={p.text.replace(/ /g, "&nbsp;")} />
-          ))
-        : <span>{command}</span>
+      parts && parts.length > 0 ? (
+        parts.map((p) => (
+          <span
+            class={colorClass[p.type]}
+            set:html={p.text.replace(/ /g, '&nbsp;')}
+          />
+        ))
+      ) : (
+        <span>{command}</span>
+      )
     }
   </div>
   <button
@@ -64,14 +69,17 @@ const colorClass: Record<CommandPart["type"], string> = {
       0 12px 40px rgba(0, 0, 0, 0.5);
   }
   .copy-btn {
-    transition: background 0.15s, color 0.15s, text-shadow 0.15s;
+    transition:
+      background 0.15s,
+      color 0.15s,
+      text-shadow 0.15s;
   }
   .copy-btn:hover {
     color: var(--color-neon-cyan);
     text-shadow: var(--shadow-glow-cyan);
     background: rgba(108, 243, 251, 0.06);
   }
-  .copy-btn[data-copied="true"] {
+  .copy-btn[data-copied='true'] {
     color: var(--color-neon-magenta);
     text-shadow: var(--shadow-glow-magenta);
     background: rgba(255, 110, 211, 0.08);
@@ -91,15 +99,15 @@ const colorClass: Record<CommandPart["type"], string> = {
 
 <script>
   // Tiny copy-to-clipboard wiring, scoped to every InstallBlock on the page.
-  document.querySelectorAll<HTMLButtonElement>(".copy-btn").forEach((btn) => {
-    const cmd = btn.dataset.command || "";
-    btn.addEventListener("click", () => {
+  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
+    const cmd = btn.dataset.command || '';
+    btn.addEventListener('click', () => {
       const done = () => {
-        btn.dataset.copied = "true";
-        btn.textContent = "Copied";
+        btn.dataset.copied = 'true';
+        btn.textContent = 'Copied';
         setTimeout(() => {
-          btn.dataset.copied = "false";
-          btn.textContent = "Copy";
+          btn.dataset.copied = 'false';
+          btn.textContent = 'Copy';
         }, 1600);
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -108,14 +116,14 @@ const colorClass: Record<CommandPart["type"], string> = {
         fallback();
       }
       function fallback() {
-        const ta = document.createElement("textarea");
+        const ta = document.createElement('textarea');
         ta.value = cmd;
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
         document.body.appendChild(ta);
         ta.select();
         try {
-          document.execCommand("copy");
+          document.execCommand('copy');
           done();
         } catch {
           /* ignored */

@@ -20,21 +20,30 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 200px;
-    transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+    transition:
+      border-color 0.18s,
+      box-shadow 0.18s,
+      transform 0.18s;
   }
   .links .link-card:hover {
     transform: translateY(-2px);
     border-color: var(--color-neon-cyan);
-    box-shadow: 0 0 0 1px rgba(108, 243, 251, 0.15), 0 0 30px rgba(44, 213, 222, 0.18);
+    box-shadow:
+      0 0 0 1px rgba(108, 243, 251, 0.15),
+      0 0 30px rgba(44, 213, 222, 0.18);
   }
   .links .link-card .arrow {
-    transition: transform 0.18s, text-shadow 0.18s;
+    transition:
+      transform 0.18s,
+      text-shadow 0.18s;
   }
   .links .link-card:hover .arrow {
     transform: translateX(8px);
     text-shadow: var(--shadow-glow-cyan);
   }
   @media (max-width: 768px) {
-    .links .link-card { min-height: 0; }
+    .links .link-card {
+      min-height: 0;
+    }
   }
 </style>

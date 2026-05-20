@@ -11,8 +11,8 @@ jobs:
       - uses: procyon-creative/jira-action-man@v2
         id: jira
         with:
-          projects: "PBT"
-          from: "branch,title,commits,body"
+          projects: 'PBT'
+          from: 'branch,title,commits,body'
           post_to_jira: true
           jira_comment_mode: update
           jira_base_url: ${{ secrets.JIRA_BASE_URL }}
@@ -27,8 +27,8 @@ jobs:
       - uses: procyon-creative/jira-action-man@v2
         id: jira
         with:
-          projects: "PBT"
-          from: "branch,title,commits,body"
+          projects: 'PBT'
+          from: 'branch,title,commits,body'
           post_to_jira: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
 

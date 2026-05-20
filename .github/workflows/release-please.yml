@@ -39,8 +39,8 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         id: jira
         with:
-          projects: "PBT"
-          from: "commits"
+          projects: 'PBT'
+          from: 'commits'
           post_to_jira: true
           jira_comment_mode: minimal
           jira_base_url: ${{ secrets.JIRA_BASE_URL }}

@@ -8,7 +8,7 @@ type Props = {
   issuesLabel?: string;
 };
 
-const { copyright, issuesUrl, issuesLabel = "Report an issue →" } = Astro.props;
+const { copyright, issuesUrl, issuesLabel = 'Report an issue →' } = Astro.props;
 ---
 
 <footer
@@ -16,7 +16,9 @@ const { copyright, issuesUrl, issuesLabel = "Report an issue →" } = Astro.prop
   style="letter-spacing: 0.12em;"
 >
   <div>
-    {copyright} <span class="star text-neon-magenta mx-1.5" aria-hidden="true">✦</span> Released under GPL-2.0-or-later
+    {copyright}
+    <span class="star text-neon-magenta mx-1.5" aria-hidden="true">✦</span> Released
+    under GPL-2.0-or-later
   </div>
   <div>
     <a href={issuesUrl} class="text-neon-cyan">{issuesLabel}</a>

@@ -15,17 +15,17 @@ Procyon Creative house-style Astro theme. Tailwind v4, dark navy palette, gradie
 
 ## Design system
 
-| Token | Value |
-|------|-------|
-| `bg` | `#0a0628` |
-| `surface` | `#150a36` |
-| `ink` | `#f3edff` |
-| `ink-soft` | `#d6cfff` |
-| `rule` | `#4a3a8a` |
-| `neon-cyan` | `#6cf3fb` |
+| Token          | Value     |
+| -------------- | --------- |
+| `bg`           | `#0a0628` |
+| `surface`      | `#150a36` |
+| `ink`          | `#f3edff` |
+| `ink-soft`     | `#d6cfff` |
+| `rule`         | `#4a3a8a` |
+| `neon-cyan`    | `#6cf3fb` |
 | `neon-magenta` | `#ff6ed3` |
-| `neon-yellow` | `#f6e858` |
-| `neon-orange` | `#ff9b6e` |
+| `neon-yellow`  | `#f6e858` |
+| `neon-orange`  | `#ff9b6e` |
 
 Display font: Big Shoulders Display. Body: IBM Plex Sans. Mono: JetBrains Mono.
 
